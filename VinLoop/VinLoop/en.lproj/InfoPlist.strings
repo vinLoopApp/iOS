@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  VinLoop
+
+  Created by Julien Hoachuck on 4/20/15.
+  Copyright (c) 2015 Pandodroid. All rights reserved.
+*/
+"NSLocationWhenInUseUsageDescription" = "Usage key 1.";
+"NSLocationAlwaysUsageDescription" = "Usage key 2.";
