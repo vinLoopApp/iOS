@@ -9,10 +9,13 @@
 
 #import "VinLoopDelegate.h"
 #import "DealsTableViewController.h"
+#import "SWRevealViewController.h"
+#import "DealsTableViewController.h"
+#import "NavTableViewController.h"
 
 #import <QuartzCore/QuartzCore.h>
 
-@interface VinLoopDelegate ()
+@interface VinLoopDelegate () <SWRevealViewControllerDelegate>
 
 @end
 
@@ -22,17 +25,42 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize window = _window;
+@synthesize viewController = _viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
 
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = window;
     
+    DealsTableViewController *frontViewController = [[DealsTableViewController alloc] init];
+    NavTableViewController *rearViewController  = [[NavTableViewController alloc] init];
+
+    frontViewController.managedObjectContext = self.managedObjectContext;
+    //rearViewController.managedObjectContext = self.managedObjectContext;
+    
+    UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
+    UINavigationController *rearNavigationController = [[UINavigationController alloc] initWithRootViewController:rearViewController];
+    
+    
+    SWRevealViewController *revealController = [[SWRevealViewController alloc] initWithRearViewController:rearNavigationController frontViewController:frontNavigationController];
+    
+    revealController.delegate = self;
+   // revealController.rightViewController = rightViewController;
+    self.viewController = revealController;
+    self.window.rootViewController = self.viewController;
+    [self.window makeKeyAndVisible];
+
+    
+    
+    /*
     DealsTableViewController *itemsViewController = [[DealsTableViewController alloc] init];
     itemsViewController.managedObjectContext = self.managedObjectContext;
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
 
     self.window.rootViewController = navController;
-     
+     */
 
     return YES;
 }
