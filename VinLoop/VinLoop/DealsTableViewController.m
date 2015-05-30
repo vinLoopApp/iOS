@@ -19,6 +19,7 @@
 #import "ProfileViewController.h"
 #import "VLSearchController.h"
 #import "VLSearchBar.h"
+#import "SWRevealViewController.h"
 
 @interface DealsTableViewController ()
 @property (nonatomic, strong) NSURLSession *session;
@@ -67,9 +68,10 @@
     
         
         // Logo on lefts
+        /*
         UIBarButtonItem *logo = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]]];
         self.navigationItem.leftBarButtonItem = logo;
-
+         */
     }// Navigation Bar Initialization
     
 
@@ -83,6 +85,24 @@
     NSLog(@"ViewDidLoad");
     
     [super viewDidLoad];
+    
+    // SWRevelViewController Navigation Drawer
+    SWRevealViewController *revealController = [self revealViewController];
+    
+    [revealController panGestureRecognizer];
+    [revealController tapGestureRecognizer];
+    //Add an image to your project & set that image here.
+    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter.png"]style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
+    self.navigationItem.leftBarButtonItem = revealButtonItem;
+    
+    //Add an image to your project & set that image here.
+    /*
+    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter.png"]style:UIBarButtonItemStyleBordered target:revealController action:@selector(rightRevealToggle:)];
+    self.navigationItem.rightBarButtonItem = rightRevealButtonItem;
+    */
+    
+    
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.dealsTableView.delegate = self;
@@ -203,9 +223,16 @@
         //Add to the winery name array for the favorite controller
         [addFavController.favWineList addObject:[aResult valueForKey:@"winery"]];
     }
-    
+    /*
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addFavController];
     [self presentViewController:navigationController animated:YES completion:nil];
+    */
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.type = kCATransitionMoveIn;
+    transition.subtype = kCATransitionFromRight;
+    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+    [self.navigationController pushViewController:addFavController animated:NO];
     
 } // Favorites Button Event Function
 

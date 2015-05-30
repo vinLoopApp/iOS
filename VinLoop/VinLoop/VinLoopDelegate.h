@@ -10,6 +10,8 @@
 #import "VLTSViewController.h"
 #import <CoreData/CoreData.h>
 
+@class SWRevealViewController;
+
 @interface VinLoopDelegate : UIResponder <UIApplicationDelegate>
 
 
@@ -18,6 +20,8 @@
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@property (nonatomic, strong) SWRevealViewController *viewController;
 
 
 
