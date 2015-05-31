@@ -9,6 +9,7 @@
 #import "NavTableViewController.h"
 #import "SWRevealViewController.h"
 #import "FiltersViewController.h"
+#import "DealsTableViewController.h"
 
 @interface NavTableViewController ()
 
@@ -31,6 +32,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self navigationController] setNavigationBarHidden:YES animated:animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[self navigationController] setNavigationBarHidden:NO animated:NO];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -102,8 +114,20 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
      SWRevealViewController *revealController = [self revealViewController];
-    revealController.rightViewController = [[FiltersViewController alloc] init];
-     [revealController revealToggle:self];
+    
+    // Edits:
+    //DealsTableViewController *dealsFrontController = (DealsTableViewController *) revealController.frontViewController;
+    
+    UINavigationController *dealsFrontController2 = (UINavigationController *) revealController.frontViewController;
+    DealsTableViewController *rootView = [dealsFrontController2.viewControllers objectAtIndex:0];
+    [rootView showFavorites];
+    
+    //[dealsFrontController showFavorites];
+    
+    //[dealsFrontController.navigationController.topViewController showFavorites];
+    
+
+    [revealController revealToggle:self];
 
 }
 

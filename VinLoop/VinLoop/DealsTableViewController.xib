@@ -7,8 +7,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DealsTableViewController">
             <connections>
                 <outlet property="dealsTableView" destination="h8g-Fy-yOL" id="U0s-0q-tco"/>
-                <outlet property="sView" destination="4m5-7H-6JJ" id="Cvh-cu-9q2"/>
-                <outlet property="sfView" destination="k8A-OP-mML" id="38m-Io-IEU"/>
                 <outlet property="view" destination="iN0-l3-epB" id="1Ka-zN-AyP"/>
             </connections>
         </placeholder>
@@ -18,68 +16,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="h8g-Fy-yOL">
-                    <rect key="frame" x="0.0" y="110" width="375" height="557"/>
+                    <rect key="frame" x="0.0" y="66" width="375" height="601"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="557" id="uv3-gz-N80"/>
-                    </constraints>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k8A-OP-mML">
-                    <rect key="frame" x="0.0" y="64" width="375" height="50"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWT-xB-bKs">
-                            <rect key="frame" x="323" y="11" width="33" height="24"/>
-                            <state key="normal" image="filter">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="showFilters:" destination="-1" eventType="touchDown" id="lr0-O5-FDw"/>
-                            </connections>
-                        </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4m5-7H-6JJ">
-                            <rect key="frame" x="0.0" y="0.0" width="315" height="50"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="kWT-xB-bKs" firstAttribute="leading" secondItem="4m5-7H-6JJ" secondAttribute="trailing" constant="8" symbolic="YES" id="CXJ-q5-FcU"/>
-                        <constraint firstItem="4m5-7H-6JJ" firstAttribute="centerY" secondItem="kWT-xB-bKs" secondAttribute="centerY" constant="2" id="LZg-lD-f0b"/>
-                        <constraint firstItem="4m5-7H-6JJ" firstAttribute="leading" secondItem="k8A-OP-mML" secondAttribute="leading" id="ORM-yK-Phv"/>
-                        <constraint firstItem="4m5-7H-6JJ" firstAttribute="top" secondItem="k8A-OP-mML" secondAttribute="top" id="rjj-Tf-jJo"/>
-                        <constraint firstAttribute="bottom" secondItem="4m5-7H-6JJ" secondAttribute="bottom" id="ynd-5v-CAp"/>
-                        <constraint firstAttribute="trailing" secondItem="kWT-xB-bKs" secondAttribute="trailing" constant="19" id="yqy-HP-wIV"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="h8g-Fy-yOL" secondAttribute="trailing" id="9P0-dH-RCI"/>
-                <constraint firstItem="k8A-OP-mML" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="43" id="Goz-Fg-HNy"/>
-                <constraint firstItem="h8g-Fy-yOL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="KlN-77-IFa"/>
-                <constraint firstItem="k8A-OP-mML" firstAttribute="trailing" secondItem="h8g-Fy-yOL" secondAttribute="trailing" id="SFq-oS-bpb"/>
-                <constraint firstAttribute="trailing" secondItem="k8A-OP-mML" secondAttribute="trailing" constant="-7" id="bSX-UB-hmp"/>
-                <constraint firstAttribute="bottom" secondItem="k8A-OP-mML" secondAttribute="bottom" constant="553" id="cM1-4D-Mva"/>
-                <constraint firstItem="k8A-OP-mML" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-20" id="gYV-Lb-D1D"/>
-                <constraint firstItem="k8A-OP-mML" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="mpr-7a-wE5"/>
-                <constraint firstItem="k8A-OP-mML" firstAttribute="leading" secondItem="h8g-Fy-yOL" secondAttribute="leading" id="o5e-Uu-qPW"/>
-                <constraint firstAttribute="bottom" secondItem="h8g-Fy-yOL" secondAttribute="bottom" id="pNz-V2-eyn"/>
-                <constraint firstAttribute="bottom" secondItem="k8A-OP-mML" secondAttribute="bottom" constant="534" id="swB-Xh-414"/>
+                <constraint firstItem="h8g-Fy-yOL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5OJ-LE-JzJ"/>
+                <constraint firstAttribute="trailing" secondItem="h8g-Fy-yOL" secondAttribute="trailing" id="MCF-oE-JdU"/>
+                <constraint firstItem="h8g-Fy-yOL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="66" id="gvT-P0-xMo"/>
+                <constraint firstAttribute="bottom" secondItem="h8g-Fy-yOL" secondAttribute="bottom" id="lzf-D4-4I9"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="Goz-Fg-HNy"/>
-                    <exclude reference="bSX-UB-hmp"/>
-                    <exclude reference="gYV-Lb-D1D"/>
-                    <exclude reference="swB-Xh-414"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="335.5" y="296.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="filter" width="33" height="24"/>
-    </resources>
 </document>

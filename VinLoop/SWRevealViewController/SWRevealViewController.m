@@ -27,6 +27,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "SWRevealViewController.h"
+#
 
 
 #pragma mark - StatusBar Helper Function
@@ -944,7 +945,9 @@ const int FrontViewPositionNone = 0xff;
 #pragma mark - Provided acction methods
 
 - (IBAction)revealToggle:(id)sender
-{    
+{
+    // Edits:
+    
     [self revealToggleAnimated:YES];
 }
 
