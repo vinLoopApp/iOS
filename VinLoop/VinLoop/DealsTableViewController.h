@@ -42,7 +42,7 @@
 @property BOOL searchControllerWasActive;
 @property BOOL searchControllerSearchFieldWasFirstResponder;
 
-- (IBAction)showFilters:(id)sender;
+- (void) showFilters;
 - (void) showFavorites;
 
 

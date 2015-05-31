@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "SWRevealViewController.h"
 
 @interface ProfileViewController ()
 // UI elements
@@ -60,9 +61,19 @@
     
     self.lastName.text = self.lName;
     self.firstName.text = self.fName;
+    
+    SWRevealViewController *revealController = [self revealViewController];
+    revealController.panGestureRecognizer.enabled = NO;
 
 
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    SWRevealViewController *revealController = [self revealViewController];
+    revealController.panGestureRecognizer.enabled = YES;
 }
 
 -(void)cancelController
