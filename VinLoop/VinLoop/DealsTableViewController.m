@@ -62,7 +62,7 @@
         //UIBarButtonItem *profileItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"profile.png" ] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(showSettings)];
         
         //UIBarButtonItem *heartItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"heart.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(showFavorites)];
-        UIBarButtonItem *filterItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"filter.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(showFavorites)];
+        UIBarButtonItem *filterItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"filter.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(showFilters)];
         
         NSArray *actionButtonItems = @[filterItem];
         self.navigationItem.rightBarButtonItems = actionButtonItems;
@@ -283,7 +283,7 @@
     
 } // Settings Button Event Function
 
-- (IBAction)showFilters:(id)sender;
+- (void)showFilters
 {
     FiltersViewController *addFiltersController = [[FiltersViewController alloc] init];
     addFiltersController.delegate = self;
@@ -536,12 +536,12 @@
         cell.dealLabelWine.attributedText = attrTextDesc;
         
         // Old price strike out
-        NSMutableAttributedString *attrDisPrice = [cell.disPrice.attributedText mutableCopy];
+        NSMutableAttributedString *attrDisPrice = [cell.oldPrice.attributedText mutableCopy];
         [attrDisPrice replaceCharactersInRange:NSMakeRange(0, [attrDisPrice.string length])
                                     withString:[[NSString alloc] initWithFormat:@"$%@", item.origprice]];
         [attrDisPrice addAttribute:NSStrikethroughStyleAttributeName
                              value:@2 range:NSMakeRange(0, [attrDisPrice length])];
-        cell.disPrice.attributedText=attrDisPrice;
+        cell.oldPrice.attributedText=attrDisPrice;
         
         
         cell.getsLabel.text = [[NSString alloc] initWithFormat:@"%@+ Gets",item.gets];
@@ -599,6 +599,7 @@
     // Passing off information to the detailView
     DetailViewController *detailContr = [[DetailViewController alloc] init];
     detailContr.deal = selectedDeal; // hand off the current product to the detail view controller
+    NSLog(@"------------ Deal Title: %@",detailContr.deal.title);
     detailContr.currentLocation = self.currentLocation;
     
     // To access core data to push favorite items

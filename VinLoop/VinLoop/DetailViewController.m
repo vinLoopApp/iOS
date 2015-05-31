@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "SWRevealViewController.h"
 
 #import <MapKit/MapKit.h>
 
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *likesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *origPrice;
 @property (weak, nonatomic) IBOutlet UILabel *disPrice;
+@property (weak, nonatomic) IBOutlet UIToolbar *theToolBar;
 
 @property (strong, nonatomic) MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailMap;
@@ -59,6 +61,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mapView.delegate = self;
+    
+    // Transparent tool bar
+    [self.theToolBar setBackgroundImage:[[UIImage alloc] init] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.theToolBar setShadowImage:[UIImage new] forToolbarPosition:UIToolbarPositionAny];
+    NSLog(@"Detail View did load!!! --------");
+    SWRevealViewController *revealController = [self revealViewController];
+    revealController.panGestureRecognizer.enabled = NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -83,10 +92,26 @@
                             
                         }];
     
-    // Information in Detail Section
-    self.dealDetail.text = self.deal.desc;
+    // ------ Information in Detail Section ---------
+    
+    // Deal Title (desc)
+    NSMutableAttributedString *attrText = [self.dealDetail.attributedText mutableCopy];
+    [attrText replaceCharactersInRange:NSMakeRange(0, [attrText.string length])
+                            withString:self.deal.title];
+    self.dealDetail.attributedText = attrText;
+    
+    // Winery Name
     self.dealWinery.text = self.deal.name;
-    self.origPrice.text = [NSString stringWithFormat:@"$%@", self.deal.origprice];
+    
+    // Original Price Cross out
+    NSMutableAttributedString *atrOldPriceString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"$%@", self.deal.origprice]];
+    [atrOldPriceString addAttribute:NSStrikethroughStyleAttributeName
+                              value:@2
+                              range:NSMakeRange(0, [atrOldPriceString length])];
+    self.origPrice.attributedText = atrOldPriceString;
+    
+    
+    //self.origPrice.text = [NSString stringWithFormat:@"$%@", self.deal.origprice];
     self.disPrice.text = [NSString stringWithFormat:@"$%@", self.deal.price];
     self.likesLabel.text = [NSString stringWithFormat:@"%@+",self.deal.gets];
     
@@ -162,6 +187,14 @@
 
     }];
     
+    
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    SWRevealViewController *revealController = [self revealViewController];
+    revealController.panGestureRecognizer.enabled = YES;
     
 }
 

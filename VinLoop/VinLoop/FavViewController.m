@@ -10,6 +10,7 @@
 #import "DealItemCell.h"
 #import "DealItem.h"
 #import "UIImageView+WebCache.h"
+#import "SWRevealViewController.h"
 
 @interface FavViewController ()
 @end
@@ -48,7 +49,18 @@
     [exitItem setTintColor:[UIColor whiteColor]];
     
     self.navigationItem.rightBarButtonItem=removeItem;
+    SWRevealViewController *revealController = [self revealViewController];
+    revealController.panGestureRecognizer.enabled = NO;
+    
+    
+    // Do any additional setup after loading the view from its nib.
+}
 
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    SWRevealViewController *revealController = [self revealViewController];
+    revealController.panGestureRecognizer.enabled = YES;
 }
 
 -(void)exitControllerButton
