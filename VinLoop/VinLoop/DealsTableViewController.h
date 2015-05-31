@@ -43,6 +43,8 @@
 @property BOOL searchControllerSearchFieldWasFirstResponder;
 
 - (IBAction)showFilters:(id)sender;
+- (void) showFavorites;
+
 
 + (UIImage*) imageWithColor:(UIColor*)color andHeight:(CGFloat)height;
 

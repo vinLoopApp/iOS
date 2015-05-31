@@ -59,11 +59,12 @@
   
         
         // Buttons on right
-        UIBarButtonItem *profileItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"profile.png" ] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(showSettings)];
+        //UIBarButtonItem *profileItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"profile.png" ] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(showSettings)];
         
-        UIBarButtonItem *heartItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"heart.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(showFavorites)];
+        //UIBarButtonItem *heartItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"heart.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(showFavorites)];
+        UIBarButtonItem *filterItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"filter.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(showFavorites)];
         
-        NSArray *actionButtonItems = @[profileItem, heartItem];
+        NSArray *actionButtonItems = @[filterItem];
         self.navigationItem.rightBarButtonItems = actionButtonItems;
     
         
@@ -92,7 +93,7 @@
     [revealController panGestureRecognizer];
     [revealController tapGestureRecognizer];
     //Add an image to your project & set that image here.
-    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter.png"]style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
+    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"filter.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
     self.navigationItem.leftBarButtonItem = revealButtonItem;
     
     //Add an image to your project & set that image here.
@@ -117,14 +118,17 @@
     self.searchController.searchBar.backgroundImage = [UIImage new];
     
     // Adding searchbar as subview of sfview
-    [self.sView addSubview:self.searchController.searchBar];
-    [self.sfView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"searchback.png"]]];
+   // [self.sView addSubview:self.searchController.searchBar];
+    //[self.sfView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"searchback.png"]]];
+    
+    //------ ADDING SearchBAR to NAVBAR
+    self.navigationItem.titleView =self.searchController.searchBar;
     
     //self.resultsTableController.tableView.dataSource = self;
     self.searchController.delegate  = self;
     self.searchController.dimsBackgroundDuringPresentation = NO;
     self.definesPresentationContext = YES;
-    self.searchController.searchBar.placeholder = @"Search by Wineries or Location                 ";
+    self.searchController.searchBar.placeholder = @"Search vinLoop Deals            ";
     
     // Allocating data structures to hold deals, wineryToDeals for Favoritelist
     self.deals = [NSMutableArray array]; // Original Deals array
@@ -226,6 +230,7 @@
     /*
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addFavController];
     [self presentViewController:navigationController animated:YES completion:nil];
+    
     */
     CATransition* transition = [CATransition animation];
     transition.duration = 0.3;
@@ -233,6 +238,7 @@
     transition.subtype = kCATransitionFromRight;
     [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
     [self.navigationController pushViewController:addFavController animated:NO];
+     
     
 } // Favorites Button Event Function
 
@@ -264,9 +270,16 @@
         addProfileController.lName = [profile valueForKey:@"lastName"];
 
     }
-
+/*
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addProfileController];
     [self presentViewController:navigationController animated:YES completion:nil];
+*/
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.type = kCATransitionMoveIn;
+    transition.subtype = kCATransitionFromRight;
+    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+    [self.navigationController pushViewController:addProfileController animated:NO];
     
 } // Settings Button Event Function
 
@@ -279,6 +292,7 @@
     [self presentViewController:navigationController animated:YES completion:nil];
     
 } // Filter Button Event Action
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -358,12 +372,24 @@
 #pragma mark - ProfileControllerDelegate
 - (void)profileControllerDidCancel:(ProfileViewController *)controller
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.type = kCATransitionReveal;
+    transition.subtype = kCATransitionFromLeft;
+    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 -(void)profileControllerDidSave:(ProfileViewController *)controller
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.type = kCATransitionReveal;
+    transition.subtype = kCATransitionFromLeft;
+    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+    [self.navigationController popViewControllerAnimated:NO];
     
     // Save the profile information to core data
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -416,6 +442,8 @@
     }
     NSLog(@"Here is where it should be");
     
+    
+    
 }
 
 // ---------------- End Profile Delegate Code ----------------//
@@ -426,7 +454,14 @@
 #pragma mark - FiltersControllerDelegate
 - (void)favControllerDidExit:(FavViewController *)controller
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.type = kCATransitionReveal;
+    transition.subtype = kCATransitionFromLeft;
+    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 
@@ -548,7 +583,7 @@
                             **/
                             NSArray *visibleIndexPaths = [tableView indexPathsForVisibleRows];
                             if ([visibleIndexPaths containsObject:indexPath]) {
-                                cell.thumbnailView.image = [UIImage imageNamed:@"example.png"];//image;
+                                cell.thumbnailView.image = image;//image;
                            }
                        }];
         

@@ -36,6 +36,7 @@
     
     DealsTableViewController *frontViewController = [[DealsTableViewController alloc] init];
     NavTableViewController *rearViewController  = [[NavTableViewController alloc] init];
+    //DealsTableViewController *rearViewController = [[DealsTableViewController alloc] init];
 
     frontViewController.managedObjectContext = self.managedObjectContext;
     //rearViewController.managedObjectContext = self.managedObjectContext;
