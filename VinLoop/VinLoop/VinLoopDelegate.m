@@ -48,6 +48,7 @@
     SWRevealViewController *revealController = [[SWRevealViewController alloc] initWithRearViewController:rearNavigationController frontViewController:frontNavigationController];
     
     revealController.delegate = self;
+    revealController.rearViewRevealDisplacement = 0;
    // revealController.rightViewController = rightViewController;
     self.viewController = revealController;
     self.window.rootViewController = self.viewController;

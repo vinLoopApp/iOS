@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "ic_filter.png"
+      "filename" : "ic_filter_new.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "ic_filter@2x.png"
+      "filename" : "ic_filter_new@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "ic_filter@3x.png"
+      "filename" : "ic_filter_new@3x.png"
     }
   ],
   "info" : {

@@ -62,12 +62,18 @@
     [super viewDidLoad];
     self.mapView.delegate = self;
     
+    // Button
+    //[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     // Transparent tool bar
     [self.theToolBar setBackgroundImage:[[UIImage alloc] init] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     [self.theToolBar setShadowImage:[UIImage new] forToolbarPosition:UIToolbarPositionAny];
     NSLog(@"Detail View did load!!! --------");
     SWRevealViewController *revealController = [self revealViewController];
     revealController.panGestureRecognizer.enabled = NO;
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated

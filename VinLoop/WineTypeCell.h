@@ -11,5 +11,6 @@
 @interface WineTypeCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UISwitch *typeSwitch;
+@property (nonatomic, weak) IBOutlet UILabel *wineType;
 
 @end

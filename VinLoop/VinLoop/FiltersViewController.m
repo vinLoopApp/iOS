@@ -13,8 +13,8 @@
 #import "WineTypeCell.h"
 
 
-#define DEFAULT_ROW_HEIGHT 30
-#define HEADER_HEIGHT 34
+#define DEFAULT_ROW_HEIGHT 36
+#define HEADER_HEIGHT 40
 static NSString *SectionHeaderViewIdentifier = @"SectionHeaderViewIdentifier";
 
 @interface FiltersViewController ()
@@ -341,7 +341,13 @@ static NSString *SectionHeaderViewIdentifier = @"SectionHeaderViewIdentifier";
         
     } else
     {
-        //cell2.textLabel.text = @"Wine Type";
+        if(indexPath.row == 0)
+            cell2.wineType.text = @"White";
+        else if(indexPath.row == 1)
+            cell2.wineType.text = @"Red";
+        else if(indexPath.row == 2)
+            cell2.wineType.text = @"Other";
+        
         return cell2;
     }
     
@@ -383,7 +389,7 @@ static NSString *SectionHeaderViewIdentifier = @"SectionHeaderViewIdentifier";
         
     } else
     {
-        return 34;
+        return 40;
     }
 
     // Alternatively, return rowHeight.

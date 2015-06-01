@@ -93,7 +93,7 @@
     [revealController panGestureRecognizer];
     [revealController tapGestureRecognizer];
     //Add an image to your project & set that image here.
-    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"filter.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
+    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"drawer.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
     self.navigationItem.leftBarButtonItem = revealButtonItem;
     
     //Add an image to your project & set that image here.
@@ -479,7 +479,10 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 10;
+    if(section ==0)
+        return 0.1f;
+    else
+        return 0.1f;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -517,7 +520,8 @@
     
         DealItem *item = filteredDeals[indexPath.section];
         
-        UIFont *myriadFont = [UIFont fontWithName:@"Helvetica-Light" size:15];
+        UIFont *myriadFont = [UIFont fontWithName:@"MyriadPro-Regular" size:16];
+        UIFont *myriadDemiFont = [UIFont fontWithName:@"MyriadPro-Semibold" size:16];
         // Configure the cell with PDItem
         
         // Description (title) Label
@@ -532,7 +536,7 @@
         NSMutableAttributedString *attrTextDesc = [cell.dealLabelWine.attributedText mutableCopy];
         [attrTextDesc replaceCharactersInRange:NSMakeRange(0, [attrTextDesc.string length])
                                     withString:[[NSString alloc] initWithFormat:@"%@ \u2022 %.1f mi.",item.name, [item.dist floatValue]]];
-        [attrTextDesc addAttributes:@{NSFontAttributeName:myriadFont, NSForegroundColorAttributeName:[UIColor grayColor]} range:NSMakeRange(0, [attrTextDesc length])];
+        [attrTextDesc addAttributes:@{NSFontAttributeName:myriadFont, NSForegroundColorAttributeName:UIColorFromRGB(0x615F5F)} range:NSMakeRange(0, [attrTextDesc length])];
         cell.dealLabelWine.attributedText = attrTextDesc;
         
         // Old price strike out
@@ -543,8 +547,17 @@
                              value:@2 range:NSMakeRange(0, [attrDisPrice length])];
         cell.oldPrice.attributedText=attrDisPrice;
         
+        // Gets Label
+        NSMutableAttributedString *attrTextGets = [cell.getsLabel.attributedText mutableCopy];
+        [attrTextGets replaceCharactersInRange:NSMakeRange(0, [attrTextGets.string length])
+                                    withString:[[NSString alloc] initWithFormat:@"%@+ Gets",item.gets]];
+        [attrTextGets addAttributes:@{NSFontAttributeName:myriadDemiFont, NSForegroundColorAttributeName:UIColorFromRGB(0x615F5F)} range:NSMakeRange(0, [attrTextGets length])];
+        cell.getsLabel.attributedText = attrTextGets;
         
-        cell.getsLabel.text = [[NSString alloc] initWithFormat:@"%@+ Gets",item.gets];
+        
+        
+        
+        
         //cell.oldPrice.text = [[NSString alloc] initWithFormat:@"$%@",item.origprice];
         cell.disPrice.text = [[NSString alloc] initWithFormat:@"$%@", item.price];
         
@@ -555,16 +568,14 @@
         {
             [attrTextWalk replaceCharactersInRange:NSMakeRange(0, [attrTextWalk.string length])
                                         withString:@"By Walkin"];
-            [attrTextWalk addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0,[attrTextWalk length])];
+            [attrTextWalk addAttributes:@{NSFontAttributeName:myriadFont, NSForegroundColorAttributeName:UIColorFromRGB(0x615F5F)} range:NSMakeRange(0, [attrTextWalk length])];
             cell.byWalkorApp.attributedText = attrTextWalk;
         }
         else
         {
             [attrTextWalk replaceCharactersInRange:NSMakeRange(0, [attrTextWalk.string length])
                                         withString:@"By Appt."];
-            //[attrTextWalk addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(0,[attrTextWalk length])];
-           
-            [attrTextWalk addAttributes:@{NSFontAttributeName:myriadFont, NSForegroundColorAttributeName:[UIColor grayColor]} range:NSMakeRange(0, [attrTextWalk length])];
+            [attrTextWalk addAttributes:@{NSFontAttributeName:myriadFont, NSForegroundColorAttributeName:UIColorFromRGB(0x615F5F)} range:NSMakeRange(0, [attrTextWalk length])];
             cell.byWalkorApp.attributedText = attrTextWalk;
         }
 
