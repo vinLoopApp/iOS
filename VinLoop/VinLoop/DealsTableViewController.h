@@ -44,6 +44,7 @@
 
 - (void) showFilters;
 - (void) showFavorites;
+- (void) showSettings;
 
 
 + (UIImage*) imageWithColor:(UIColor*)color andHeight:(CGFloat)height;

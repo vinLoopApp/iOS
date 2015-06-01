@@ -34,6 +34,7 @@
     // Custom cell initialization
     UINib *nib = [UINib nibWithNibName:@"DealItemCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"DealItemCell"];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     
     UIBarButtonItem *exitItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(exitControllerButton)];
@@ -46,7 +47,7 @@
     self.navigationItem.leftBarButtonItem=exitItem;
     //self.navigationItem.rightBarButtonItem=searchItem;
     UIBarButtonItem *removeItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteWineryDeals)];
-    [exitItem setTintColor:[UIColor whiteColor]];
+    [removeItem setTintColor:[UIColor whiteColor]];
     
     self.navigationItem.rightBarButtonItem=removeItem;
     SWRevealViewController *revealController = [self revealViewController];

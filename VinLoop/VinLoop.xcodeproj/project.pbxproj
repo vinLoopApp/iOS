@@ -26,6 +26,13 @@
 		77060CEA1ACF6ED00054CE1B /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 77060CD91ACF6ED00054CE1B /* UIWebView+AFNetworking.m */; };
 		77060CED1ACF6FAD0054CE1B /* DealsHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 77060CEC1ACF6FAD0054CE1B /* DealsHTTPClient.m */; };
 		77095C5F1AE5924A00775C69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77095C611AE5924A00775C69 /* InfoPlist.strings */; };
+		772BA2791B1BC83F00E81D4A /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 772BA2771B1BC83F00E81D4A /* MyriadPro-Regular.otf */; };
+		772BA27A1B1BC83F00E81D4A /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 772BA2781B1BC83F00E81D4A /* MyriadPro-Semibold.otf */; };
+		772BA27E1B1BDDD800E81D4A /* NavRowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 772BA27C1B1BDDD800E81D4A /* NavRowTableViewCell.m */; };
+		772BA27F1B1BDDD800E81D4A /* NavRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 772BA27D1B1BDDD800E81D4A /* NavRowTableViewCell.xib */; };
+		772BA2831B1BF88E00E81D4A /* NavTopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 772BA2811B1BF88E00E81D4A /* NavTopTableViewCell.m */; };
+		772BA2841B1BF88E00E81D4A /* NavTopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 772BA2821B1BF88E00E81D4A /* NavTopTableViewCell.xib */; };
+		772BA2861B1C26F400E81D4A /* logo_520.png in Resources */ = {isa = PBXBuildFile; fileRef = 772BA2851B1C26F400E81D4A /* logo_520.png */; };
 		7733746E1B1528D800BF7C57 /* WineTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733746D1B1528D800BF7C57 /* WineTypeCell.m */; };
 		773374711B155F0800BF7C57 /* SOLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 773374701B155F0800BF7C57 /* SOLabel.m */; };
 		7734F4C31AF6AE12002C9CE2 /* DealsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7734F4C21AF6AE12002C9CE2 /* DealsTableViewController.xib */; };
@@ -127,6 +134,15 @@
 		77060CEB1ACF6FAD0054CE1B /* DealsHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealsHTTPClient.h; sourceTree = "<group>"; };
 		77060CEC1ACF6FAD0054CE1B /* DealsHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealsHTTPClient.m; sourceTree = "<group>"; };
 		77095C601AE5924A00775C69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		772BA2771B1BC83F00E81D4A /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
+		772BA2781B1BC83F00E81D4A /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
+		772BA27B1B1BDDD800E81D4A /* NavRowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavRowTableViewCell.h; sourceTree = "<group>"; };
+		772BA27C1B1BDDD800E81D4A /* NavRowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavRowTableViewCell.m; sourceTree = "<group>"; };
+		772BA27D1B1BDDD800E81D4A /* NavRowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavRowTableViewCell.xib; sourceTree = "<group>"; };
+		772BA2801B1BF88E00E81D4A /* NavTopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavTopTableViewCell.h; sourceTree = "<group>"; };
+		772BA2811B1BF88E00E81D4A /* NavTopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavTopTableViewCell.m; sourceTree = "<group>"; };
+		772BA2821B1BF88E00E81D4A /* NavTopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavTopTableViewCell.xib; sourceTree = "<group>"; };
+		772BA2851B1C26F400E81D4A /* logo_520.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_520.png; sourceTree = "<group>"; };
 		7733746C1B1528D800BF7C57 /* WineTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineTypeCell.h; path = ../WineTypeCell.h; sourceTree = "<group>"; };
 		7733746D1B1528D800BF7C57 /* WineTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineTypeCell.m; path = ../WineTypeCell.m; sourceTree = "<group>"; };
 		7733746F1B155F0800BF7C57 /* SOLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOLabel.h; sourceTree = "<group>"; };
@@ -333,7 +349,9 @@
 		7762A82E1AC669F5000DA267 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				77A6D1561B145166001A5E0D /* WineTypeCell.xib */,
+				772BA2771B1BC83F00E81D4A /* MyriadPro-Regular.otf */,
+				772BA2781B1BC83F00E81D4A /* MyriadPro-Semibold.otf */,
+				772BA2851B1C26F400E81D4A /* logo_520.png */,
 				77B891871B19967300C2ED8F /* SectionHeaderView.xib */,
 				77B891851B19967300C2ED8F /* carat-open.png */,
 				77B891861B19967300C2ED8F /* carat.png */,
@@ -459,6 +477,7 @@
 			children = (
 				7733746C1B1528D800BF7C57 /* WineTypeCell.h */,
 				7733746D1B1528D800BF7C57 /* WineTypeCell.m */,
+				77A6D1561B145166001A5E0D /* WineTypeCell.xib */,
 				77B891811B19967300C2ED8F /* APLSectionHeaderView.h */,
 				77B891821B19967300C2ED8F /* APLSectionHeaderView.m */,
 				77B891831B19967300C2ED8F /* APLSectionInfo.h */,
@@ -470,9 +489,15 @@
 		77B891921B19AB3800C2ED8F /* NavTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				772BA27B1B1BDDD800E81D4A /* NavRowTableViewCell.h */,
+				772BA27C1B1BDDD800E81D4A /* NavRowTableViewCell.m */,
+				772BA27D1B1BDDD800E81D4A /* NavRowTableViewCell.xib */,
 				77B8918D1B19AB1600C2ED8F /* NavTableViewController.h */,
 				77B8918F1B19AB1600C2ED8F /* NavTableViewController.xib */,
 				77B8918E1B19AB1600C2ED8F /* NavTableViewController.m */,
+				772BA2801B1BF88E00E81D4A /* NavTopTableViewCell.h */,
+				772BA2811B1BF88E00E81D4A /* NavTopTableViewCell.m */,
+				772BA2821B1BF88E00E81D4A /* NavTopTableViewCell.xib */,
 			);
 			name = NavTableViewController;
 			sourceTree = "<group>";
@@ -598,17 +623,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				772BA27A1B1BC83F00E81D4A /* MyriadPro-Semibold.otf in Resources */,
 				7762A83A1AC669F5000DA267 /* Main.storyboard in Resources */,
+				772BA27F1B1BDDD800E81D4A /* NavRowTableViewCell.xib in Resources */,
+				772BA2841B1BF88E00E81D4A /* NavTopTableViewCell.xib in Resources */,
 				77B891911B19AB1600C2ED8F /* NavTableViewController.xib in Resources */,
 				77FE442D1ADF3EC2008A9B1F /* DetailViewController.xib in Resources */,
 				77FC13611AE869760097C42C /* FiltersViewController.xib in Resources */,
 				77B8918B1B19967300C2ED8F /* carat.png in Resources */,
 				77B8918A1B19967300C2ED8F /* carat-open.png in Resources */,
+				772BA2791B1BC83F00E81D4A /* MyriadPro-Regular.otf in Resources */,
 				77A6D1571B145166001A5E0D /* WineTypeCell.xib in Resources */,
 				7762A83F1AC669F5000DA267 /* LaunchScreen.xib in Resources */,
 				77FC13661AE8B5660097C42C /* ProfileViewController.xib in Resources */,
 				7762A85E1AC6915C000DA267 /* DealItemCell.xib in Resources */,
 				77095C5F1AE5924A00775C69 /* InfoPlist.strings in Resources */,
+				772BA2861B1C26F400E81D4A /* logo_520.png in Resources */,
 				7734F4C31AF6AE12002C9CE2 /* DealsTableViewController.xib in Resources */,
 				7762A83C1AC669F5000DA267 /* Images.xcassets in Resources */,
 				77B8918C1B19967300C2ED8F /* SectionHeaderView.xib in Resources */,
@@ -636,6 +666,7 @@
 				7762A8561AC66FB9000DA267 /* DealsTableViewController.m in Sources */,
 				77C334901ACD26E100D75479 /* SDWebImageManager.m in Sources */,
 				77C3348B1ACD26E100D75479 /* SDImageCache.m in Sources */,
+				772BA2831B1BF88E00E81D4A /* NavTopTableViewCell.m in Sources */,
 				77B891901B19AB1600C2ED8F /* NavTableViewController.m in Sources */,
 				7769A4351AF065E600284CC8 /* FavViewController.m in Sources */,
 				77060CDF1ACF6ED00054CE1B /* AFURLConnectionOperation.m in Sources */,
@@ -660,6 +691,7 @@
 				7769A43B1AF0784200284CC8 /* vinloop.xcdatamodeld in Sources */,
 				7733746E1B1528D800BF7C57 /* WineTypeCell.m in Sources */,
 				77060CE91ACF6ED00054CE1B /* UIRefreshControl+AFNetworking.m in Sources */,
+				772BA27E1B1BDDD800E81D4A /* NavRowTableViewCell.m in Sources */,
 				77060CE11ACF6ED00054CE1B /* AFURLResponseSerialization.m in Sources */,
 				77FC13601AE869760097C42C /* FiltersViewController.m in Sources */,
 				77060CDB1ACF6ED00054CE1B /* AFHTTPRequestOperationManager.m in Sources */,
